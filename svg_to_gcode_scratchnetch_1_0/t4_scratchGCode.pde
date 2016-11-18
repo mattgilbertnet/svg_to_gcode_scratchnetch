@@ -7,9 +7,13 @@ void gcode_home_xy(ArrayList a){
 
 void gcode_pressure_off(ArrayList a){
   a.add("G0 Z"+(1000.0 - z_liftScriber));
+  a.add("G4 P0");
+  a.add("G92 Z"+scratchJustAboveSurface_mm);
+  a.add("G4 P0");
 }
 
 void gcode_pressure_on(ArrayList a, float f){
+  a.add("G4 P0");
   a.add("G162 Z");
   a.add("G1 F"+feedrate_scratch);
 }
@@ -18,7 +22,7 @@ String[] createScratchGcode(ArrayList copperShapes_AL){
   println("copperShapes.size() = "+copperShapes_AL.size());
   ArrayList a = new ArrayList();
   a.add("M106 S0");
-  gcode_pressure_off(a);
+  //gcode_pressure_off(a);
   a.add("G1 F"+feedrate_scratch);
   //a.add("G1 N"+scriberPressure);
   gcode_home_z(a);
@@ -99,7 +103,6 @@ String[] createScratchGcode(ArrayList copperShapes_AL){
         gcode_home_z(a);
         sinceZScratchCalib = 0;
       } else {
-        a.add("G0 Z"+(1000.0 - z_liftScriber));
       }
     } // end for loop through contours
     
