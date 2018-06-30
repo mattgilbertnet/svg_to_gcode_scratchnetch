@@ -1,6 +1,6 @@
 # svg_to_gcode_scratchnetch
 
-This prooject has been moved to GitLab: https://gitlab.com/mattgilbertnet/svg_to_gcode_scratchnetch
+This project has been moved to GitLab: https://gitlab.com/mattgilbertnet/svg_to_gcode_scratchnetch
 
 Convert SVGs exported from KiCad to gcode for scratch 'n etch PCBs with a RepRap variant.
 
